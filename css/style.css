@@ -1,1 +1,48 @@
-/* code css à faire */
+.menu {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    /* Les changements prennent 400 millisecondes (pas d'un coup).
+     allow-discrete sert à animer aussi l'apparition du menu (display) */
+    transition: 400ms allow-discrete;
+    opacity: 0;
+    /* le menu est invisible au départ */
+/* Quand le menu est ouvert, il devient visible doucement */
+}
+.menu:popover-open {
+    opacity: 1;
+/* Au moment où le menu s'ouvre, il part de invisible (opacity: 0).
+   Sans ça, il apparaîtrait d'un coup, sans fondu */
+}
+@starting-style{
+    .menu:popover-open {
+        opacity: 0;
+    }
+}
+/* Au moment où le menu s'ouvre, le bouton de fermeture ne tourne pas encore */
+@starting-style {
+  .menu:popover-open .burger--close {
+    transform: none;
+  }
+}
+/* Quand le menu est ouvert, le bouton de fermeture tourne de 90 degrés */
+.menu:popover-open .burger--close {
+  transform: rotate(90deg);
+  transition: 400ms;
+/* Quand le menu est ouvert, on bloque le défilement de la page derrière */
+}
+html:has(.menu:popover-open) {
+  overflow: hidden;
+}
+.burger {
+  cursor: pointer;
+  /* la souris devient une petite main */
+}
+/* Si la personne ne veut pas d'animations, on les enlève.
+   La virgule permet d'écrire la même règle pour deux éléments */
+@media (prefers-reduced-motion:reduce){
+    .menu,
+    .menu .burger--close{
+        transition:none;
+    }
+}
