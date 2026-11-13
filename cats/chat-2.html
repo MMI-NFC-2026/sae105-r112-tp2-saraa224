@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Test de menu</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <header class="header header--home">
+
+    <!-- Menu principal -->
+     <!-- J'ajoute popovertarget="menu" sur le bouton burger pour qu'il ouvre et ferme le menu -->
+    <button class="burger" type="button" popovertarget="menu" aria-label="Menu">
+      🍔
+    </button>
+    <!-- J'ai déclaré le menu comme popover avec l'attribut popover, et je lui ai donné l'id "menu" pour que le bouton puisse le cibler -->
+    <nav class="menu" id="menu"popover aria-label="Main menu">
+     <!-- Bouton de fermeture : popovertarget + popovertargetaction="hide" pour fermer le menu au clic.
+       J'ai aussi mis autofocus pour que le focus soit placé dessus à l'ouverture (utile au clavier) -->
+      <button class="menu__close burger burger--close" 
+      type="button" 
+      popovertarget="menu"
+      popovertargetaction="hide" 
+      aria-label="Close the menu"
+      autofocus>
+        🍔
+      </button>
+       <h4>menu</h4>
+     <ul>
+        <li><a href="index.html">Les chats</a>
+            <ul>
+                <li><a href="chat-1.html">chat 1</a></li>
+                <li><a>chat 2</a></li>
+            </ul>
+            </li>
+            <li><a href="../dogs/index.html">Les chiens</a></li>
+         </ul>
+    </nav>
+    <!-- Fin du menu principal -->
+  </header>
+
+  <!-- Contenu principal de la page -->
+  <main>
+    <h1>Chat 2</h1>
+   <img class="media media--fullwidth" src="../public/img/cats/Cautious_Tabby_Red_Cat.jpg">
+  </main>
+  <!-- Fin du contenu principal -->
+
+</body>
+
+</html>
